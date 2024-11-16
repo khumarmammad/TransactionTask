@@ -43,7 +43,6 @@ const addTransaction = async () => {
                 body: JSON.stringify(newTransaction),
             });
             if (!response.ok) throw new Error("Failed to add transaction");
-
             const data = await response.json();
             transactions.push(data);
             renderTransactions(transactions);
@@ -58,11 +57,9 @@ const addTransaction = async () => {
 const editTransaction = async (id) => {
     const transaction = transactions.find((t) => t.id === id);
     if (!transaction) return;
-
     const from = prompt("Edit From:", transaction.from);
     const to = prompt("Edit To:", transaction.to);
     const amount = prompt("Edit Amount:", transaction.amount);
-
     if (from && to && amount) {
         const updatedTransaction = { from, to, amount: parseFloat(amount) };
         try {
@@ -88,7 +85,6 @@ const deleteTransaction = async (id) => {
         try {
             const response = await fetch(`${url}/${id}`, { method: "DELETE" });
             if (!response.ok) throw new Error("Failed to delete transaction");
-
             transactions = transactions.filter((t) => t.id !== id);
             renderTransactions(transactions);
         } catch (error) {
@@ -113,11 +109,8 @@ const init = async () => {
 document.getElementById("addTransaction").addEventListener("click", () => {
     document.getElementById("transactionModal").style.display = "block";
 });
-
 document.querySelector(".close-button").addEventListener("click", closeModal);
-
 document.getElementById("modalAddTransaction").addEventListener("click", addTransaction);
-
 window.addEventListener("click", (event) => {
     if (event.target === document.getElementById("transactionModal")) {
         closeModal();
