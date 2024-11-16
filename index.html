@@ -9,21 +9,21 @@
     <div class="container">
         <div class="header">
             <h1>Transaction</h1>
-            <button id="addTransaction">Add Transaction</button>
+            <button class="add-transaction">Add Transaction</button>
         </div>
-        <div id="transactionGrid" class="grid"></div>
+        <div class="transaction-grid grid"></div>
     </div>
-    <div id="transactionModal" class="modal">
+    <div class="transaction-modal modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h2>Add New Transaction</h2>
             <label for="from">From:</label>
-            <input type="text" id="modalFrom" placeholder="Enter sender">
+            <input type="text" class="modal-from" placeholder="Enter sender">
             <label for="to">To:</label>
-            <input type="text" id="modalTo" placeholder="Enter receiver">
+            <input type="text" class="modal-to" placeholder="Enter receiver">
             <label for="amount">Amount:</label>
-            <input type="number" id="modalAmount" placeholder="Enter amount">
-            <button id="modalAddTransaction">Add</button>
+            <input type="number" class="modal-amount" placeholder="Enter amount">
+            <button class="modal-add-transaction">Add</button>
         </div>
     </div>
     <script src="main.js"></script>

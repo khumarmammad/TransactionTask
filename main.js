@@ -11,7 +11,7 @@ const fetchTransactions = async () => {
     }
 };
 const renderTransactions = (transactions) => {
-    const grid = document.getElementById("transactionGrid");
+    const grid = document.querySelector(".transaction-grid");
     grid.innerHTML = "";
     transactions.forEach((transaction) => {
         const card = document.createElement("div");
@@ -22,18 +22,17 @@ const renderTransactions = (transactions) => {
             <p><strong>To:</strong> ${transaction.to}</p>
             <p><strong>Amount:</strong> $${transaction.amount}</p>
             <div class="actions">
-                <button class="edit" onclick="editTransaction(${transaction.id})">Edit</button>
-                <button class="delete" onclick="deleteTransaction(${transaction.id})">Delete</button>
+            <button class="edit" onclick="editTransaction(${transaction.id})">Edit</button>
+            <button class="delete" onclick="deleteTransaction(${transaction.id})">Delete</button>
             </div>
         `;
         grid.appendChild(card);
     });
 };
 const addTransaction = async () => {
-    const from = document.getElementById("modalFrom").value.trim();
-    const to = document.getElementById("modalTo").value.trim();
-    const amount = document.getElementById("modalAmount").value.trim();
-
+    const from = document.querySelector(".modal-from").value.trim();
+    const to = document.querySelector(".modal-to").value.trim();
+    const amount = document.querySelector(".modal-amount").value.trim();
     if (from && to && amount) {
         const newTransaction = { from, to, amount: parseFloat(amount) };
         try {
@@ -69,7 +68,6 @@ const editTransaction = async (id) => {
                 body: JSON.stringify(updatedTransaction),
             });
             if (!response.ok) throw new Error("Failed to edit transaction");
-
             const data = await response.json();
             const index = transactions.findIndex((t) => t.id === id);
             transactions[index] = data;
@@ -93,10 +91,10 @@ const deleteTransaction = async (id) => {
     }
 };
 const closeModal = () => {
-    document.getElementById("transactionModal").style.display = "none";
-    document.getElementById("modalFrom").value = "";
-    document.getElementById("modalTo").value = "";
-    document.getElementById("modalAmount").value = "";
+    document.querySelector(".transaction-modal").style.display = "none";
+    document.querySelector(".modal-from").value = "";
+    document.querySelector(".modal-to").value = "";
+    document.querySelector(".modal-amount").value = "";
 };
 const init = async () => {
     try {
@@ -106,13 +104,13 @@ const init = async () => {
         console.error("Error initializing app:", error);
     }
 };
-document.getElementById("addTransaction").addEventListener("click", () => {
-    document.getElementById("transactionModal").style.display = "block";
+document.querySelector(".add-transaction").addEventListener("click", () => {
+    document.querySelector(".transaction-modal").style.display = "block";
 });
 document.querySelector(".close-button").addEventListener("click", closeModal);
-document.getElementById("modalAddTransaction").addEventListener("click", addTransaction);
+document.querySelector(".modal-add-transaction").addEventListener("click", addTransaction);
 window.addEventListener("click", (event) => {
-    if (event.target === document.getElementById("transactionModal")) {
+    if (event.target === document.querySelector(".transaction-modal")) {
         closeModal();
     }
 });

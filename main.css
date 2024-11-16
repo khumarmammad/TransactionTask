@@ -22,13 +22,13 @@ body {
 }
 h1 {
     font-family: 'Arial', sans-serif;
-    font-size: 2.5rem; 
-    color: #fff; 
+    font-size: 2.5rem;
+    color: #fff;
     margin: 0;
-    letter-spacing: 1px; 
+    letter-spacing: 1px;
 }
-button#addTransaction {
-    background-color: #ff4081; 
+button.add-transaction {
+    background-color: #ff4081;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -38,8 +38,8 @@ button#addTransaction {
     margin-top: 15px;
     transition: background-color 0.3s ease;
 }
-button#addTransaction:hover {
-    background-color: #f50057; 
+button.add-transaction:hover {
+    background-color: #f50057;
 }
 .modal {
     display: none;
@@ -57,12 +57,12 @@ button#addTransaction:hover {
     margin: 10% auto;
     padding: 20px;
     border-radius: 8px;
-    width: 90%; 
-    max-width: 500px; 
+    width: 90%;
+    max-width: 500px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
-    overflow: hidden; 
-    word-wrap: break-word; 
+    overflow: hidden;
+    word-wrap: break-word;
 }
 .close-button {
     position: absolute;
@@ -93,7 +93,7 @@ button#addTransaction:hover {
     border-radius: 5px;
     box-sizing: border-box;
 }
-#modalAddTransaction {
+button.modal-add-transaction {
     background-color: #ff4081;
     color: white;
     border: none;
@@ -102,12 +102,12 @@ button#addTransaction:hover {
     cursor: pointer;
     margin-top: 15px;
     transition: background-color 0.3s ease;
-    width: 100%; 
-    max-width: 200px; 
+    width: 100%;
+    max-width: 200px;
     display: block;
-    margin: 15px auto; 
+    margin: 15px auto;
 }
-#modalAddTransaction:hover {
+button.modal-add-transaction:hover {
     background-color: #f50057;
 }
 .grid {
@@ -126,11 +126,11 @@ button#addTransaction:hover {
     transition: transform 0.2s ease-in-out;
 }
 .card:hover {
-    transform: translateY(-5px); 
+    transform: translateY(-5px);
 }
 .card h3 {
     margin: 0 0 10px;
-    color: #fff; 
+    color: #fff;
 }
 .card p {
     margin: 5px 0;
@@ -163,8 +163,9 @@ button#addTransaction:hover {
 }
 @media (max-width: 600px) {
     .grid {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
     }
+
     .modal-content {
         width: 95%;
         max-width: 90%;
@@ -172,17 +173,16 @@ button#addTransaction:hover {
 }
 @media (min-width: 600px) and (max-width: 900px) {
     .grid {
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 @media (min-width: 900px) {
     .grid {
-        grid-template-columns: repeat(3, 1fr); 
+        grid-template-columns: repeat(3, 1fr);
     }
 }
-
 @media (min-width: 1200px) {
     .grid {
-        grid-template-columns: repeat(4, 1fr); 
+        grid-template-columns: repeat(4, 1fr);
     }
 }
